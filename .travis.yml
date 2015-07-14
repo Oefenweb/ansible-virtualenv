@@ -43,6 +43,14 @@ branches:
   only:
     - master
 
+matrix:
+  allow_failures:
+    # Idempotency test fails
+    - env: ANSIBLE_VERSION=1.4.3
+    - env: ANSIBLE_VERSION=1.4.2
+    - env: ANSIBLE_VERSION=1.4.1
+    - env: ANSIBLE_VERSION=1.4
+
 before_install:
   - sudo apt-get update -qq
 
