@@ -1,0 +1,5 @@
+# vars file for virtualenv
+---
+virtualenv_dependencies:
+  - virtualenv
+  - virtualenvwrapper
