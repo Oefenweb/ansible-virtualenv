@@ -21,4 +21,6 @@ alias apt-install='apt-get install -q -y -o Dpkg::Options::="--force-confdef" -o
 apt-update;
 apt-install python-pip;
 
+sudo pip install -U pip;
+
 touch /provisioned;
