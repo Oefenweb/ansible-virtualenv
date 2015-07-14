@@ -1,0 +1,8 @@
+# tasks file for virtualenv
+---
+- name: install
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items: virtualenv_dependencies
+  tags: [configuration, virtualenv, virtualenv-install]
