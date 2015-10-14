@@ -4,26 +4,6 @@
   remote_user: vagrant
   sudo: true
   pre_tasks:
-    - name: install dependencies
-      apt:
-        name: "{{ item }}"
-        state: latest
-        update_cache: true
-        cache_valid_time: 3600
-      with_items:
-        - python-dev
-        - python-pip
-      tags:
-        - configuration
-        - ansible
-        - ansible-dependencies
-    - name: update pip
-      pip:
-        name: pip
-        state: latest
-      tags:
-        - configuration
-        - ansible
-        - ansible-update-pip
+    - include: pre.yml
   roles:
     - ../../

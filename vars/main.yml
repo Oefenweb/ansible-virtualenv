@@ -1,5 +1,8 @@
 # vars file for virtualenv
 ---
 virtualenv_dependencies:
+  - python
+
+virtualenv_pip_dependencies:
   - virtualenv
   - virtualenvwrapper
