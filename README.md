@@ -8,6 +8,8 @@ Set up (the latest version of) virtualenv(wrapper) in Debian-like systems.
 
 * `pip` (will not installed)
 
+* `python` (will be installed)
+
 #### Variables
 
 None

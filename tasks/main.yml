@@ -1,8 +1,24 @@
 # tasks file for virtualenv
 ---
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+  with_items: virtualenv_dependencies
+  tags:
+    - configuration
+    - virtualenv
+    - virtualenv-install
+    - virtualenv-install-dependencies
+
 - name: install
   pip:
     name: "{{ item }}"
     state: latest
-  with_items: virtualenv_dependencies
-  tags: [configuration, virtualenv, virtualenv-install]
+  with_items: virtualenv_pip_dependencies
+  tags:
+    - configuration
+    - virtualenv
+    - virtualenv-install

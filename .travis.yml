@@ -36,10 +36,6 @@ env:
   - ANSIBLE_VERSION=1.5
   - ANSIBLE_VERSION=1.4.5
   - ANSIBLE_VERSION=1.4.4
-  - ANSIBLE_VERSION=1.4.3
-  - ANSIBLE_VERSION=1.4.2
-  - ANSIBLE_VERSION=1.4.1
-  - ANSIBLE_VERSION=1.4
 
 branches:
   only:
@@ -47,17 +43,11 @@ branches:
 
 matrix:
   allow_failures:
-    # Idempotency test fails
-    - env: ANSIBLE_VERSION=1.4.3
-    - env: ANSIBLE_VERSION=1.4.2
-    - env: ANSIBLE_VERSION=1.4.1
-    - env: ANSIBLE_VERSION=1.4
+    # See https://github.com/ansible/ansible/issues/6385
+    - env: ANSIBLE_VERSION=1.5.1
 
 before_install:
   - sudo apt-get update -qq
-
-  # Update pip to the latest version.
-  - sudo pip install -U pip
 
 install:
   # Install Ansible.
