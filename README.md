@@ -1,6 +1,6 @@
 ## virtualenv
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-virtualenv.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-virtualenv) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-virtualenv-blue.svg)](https://galaxy.ansible.com/list#/roles/4387)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-virtualenv.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-virtualenv) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-virtualenv-blue.svg)](https://galaxy.ansible.com/tersmitten/virtualenv)
 
 Set up (the latest version of) virtualenv(wrapper) in Debian-like systems.
 
