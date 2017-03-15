@@ -10,15 +10,6 @@
     - python
     - curl
 
-- name: pre | install setuptools
-  shell: curl -sL https://bootstrap.pypa.io/ez_setup.py | python -
-  changed_when: false
-
 - name: pre | install pip
-  easy_install:
-    name: pip
-
-- name: pre | update pip
-  pip:
-    name: pip
-    state: latest
+  shell: curl -sL https://bootstrap.pypa.io/get-pip.py | python -
+  changed_when: false
