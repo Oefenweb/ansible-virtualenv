@@ -2,11 +2,10 @@
 ---
 - name: install dependencies
   apt:
-    name: "{{ item }}"
+    name: "{{ virtualenv_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  with_items: "{{ virtualenv_dependencies }}"
   tags:
     - configuration
     - virtualenv
@@ -15,10 +14,10 @@
 
 - name: install
   pip:
-    name: "{{ item }}"
+    name: "{{ virtualenv_pip_dependencies }}"
     state: latest
-  with_items: "{{ virtualenv_pip_dependencies }}"
   tags:
     - configuration
     - virtualenv
     - virtualenv-install
+    - skip_ansible_lint
