@@ -1,7 +1,7 @@
 # vars file for virtualenv
 ---
 virtualenv_dependencies:
-  - python
+  - "python{{ virtualenv_python_version is version('3', '>=') | ternary('3', '') }}"
 
 virtualenv_pip_dependencies:
   - virtualenv

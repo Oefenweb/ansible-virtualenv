@@ -7,3 +7,5 @@
     - include: pre.yml
   roles:
     - ../../
+#  vars:
+#    virtualenv_python_version: 3

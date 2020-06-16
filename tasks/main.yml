@@ -16,8 +16,8 @@
   pip:
     name: "{{ virtualenv_pip_dependencies }}"
     state: latest
+    executable: "pip{{ virtualenv_python_version | string }}"
   tags:
     - configuration
     - virtualenv
     - virtualenv-install
-    - skip_ansible_lint
