@@ -4,7 +4,8 @@
   connection: local
   become: true
   pre_tasks:
-    - include: pre.yml
+    - name: include tasks
+      include: "{{ playbook_dir }}/tasks/pre.yml"
   roles:
     - ../../
 #  vars:
