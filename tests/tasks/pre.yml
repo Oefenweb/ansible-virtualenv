@@ -11,7 +11,9 @@
 
 - name: pre | install pip
   shell: >
-    curl -sL https://bootstrap.pypa.io/get-pip.py | python{{ virtualenv_python_version | string }} -
+    curl -sL {{ virtualenv_get_pip_url }} | python{{ virtualenv_python_version | string }} -
   args:
-      warn: false
+    warn: false
   changed_when: false
+  tags:
+    - skip_ansible_lint

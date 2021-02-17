@@ -1,0 +1,4 @@
+# vars file for pip
+---
+virtualenv_python_version: 3
+virtualenv_get_pip_url: 'https://bootstrap.pypa.io/3.5/get-pip.py'
