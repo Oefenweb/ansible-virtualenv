@@ -1,4 +1,4 @@
-# tasks file for virtualenv
+# tasks file
 ---
 - name: install dependencies
   apt:
@@ -16,7 +16,7 @@
   pip:
     name: "{{ virtualenv_pip_dependencies }}"
     state: latest
-    executable: "pip{{ virtualenv_python_version | string }}"
+    executable: "pip{{ virtualenv_python_version_major | string }}"
   tags:
     - configuration
     - virtualenv

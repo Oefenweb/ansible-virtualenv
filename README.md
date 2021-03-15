@@ -13,7 +13,8 @@ Set up (the latest version of) virtualenv(wrapper) in Debian-like systems.
 
 #### Variables
 
-* `virtualenv_python_version` [default: `2`]: Python version to install `virtualenv` for.
+* `virtualenv_python_version_major` [default: `2`]: Python version to install `supervisor` for.
+* `virtualenv_python_version` [default: `virtualenv_python_version`]: Deprecated
 
 ## Dependencies
 

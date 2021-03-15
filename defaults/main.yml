@@ -1,3 +1,3 @@
-# defaults file for virtualenv
+# defaults file
 ---
 virtualenv_python_version: 2
