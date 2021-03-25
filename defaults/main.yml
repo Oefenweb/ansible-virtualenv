@@ -1,3 +1,4 @@
 # defaults file
 ---
-virtualenv_python_version: 2
+virtualenv_python_version_major: 2
+virtualenv_python_version: "{{ virtualenv_python_version_major }}"
