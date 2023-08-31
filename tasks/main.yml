@@ -1,6 +1,6 @@
 # tasks file
 ---
-- name: install dependencies
+- name: install dependencies  # noqa package-latest
   ansible.builtin.apt:
     name: "{{ virtualenv_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
