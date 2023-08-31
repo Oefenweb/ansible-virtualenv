@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: install dependencies
-  apt:
+  ansible.builtin.apt:
     name: "{{ virtualenv_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -13,7 +13,7 @@
     - virtualenv-install-dependencies
 
 - name: install
-  pip:
+  ansible.builtin.pip:
     name: "{{ virtualenv_pip_dependencies }}"
     state: latest
     executable: "pip{{ virtualenv_python_version_major | string }}"
