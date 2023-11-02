@@ -30,7 +30,7 @@ None
 ---
 - hosts: all
   roles:
-    - virtualenv
+    - oefenweb.virtualenv
 ```
 
 #### License
