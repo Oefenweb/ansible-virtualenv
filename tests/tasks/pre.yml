@@ -1,17 +1,28 @@
 # pre test file
 ---
-- name: install dependencies
-  ansible.builtin.apt:
-    name:
-      - "python{{ virtualenv_python_version_major is version('3', '>=') | ternary('3', '') }}"
-      - curl
-    state: "{{ apt_install_state | default('latest') }}"
-    update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-
-- name: install pip  # noqa command-instead-of-module
+- name: pip | check
   ansible.builtin.shell: >
-    curl -sL {{ virtualenv_get_pip_url }} | python{{ virtualenv_python_version_major | string }} -
+    which pip
+  register: _pip_installed
   changed_when: false
-  tags:
-    - skip_ansible_lint
+  check_mode: false
+  failed_when: false
+
+- name: pip | install
+  when: _pip_installed.rc != 0
+  block:
+    - name: dependencies | install
+      ansible.builtin.apt:
+        name:
+          - "python{{ virtualenv_python_version_major is version('3', '>=') | ternary('3', '') }}"
+          - curl
+        state: "{{ apt_install_state | default('latest') }}"
+        update_cache: true
+        cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+
+    - name: pip | install  # noqa command-instead-of-module
+      ansible.builtin.shell: >
+        curl -sL {{ virtualenv_get_pip_url }} | python{{ virtualenv_python_version_major | string }} -
+      changed_when: false
+      tags:
+        - skip_ansible_lint
