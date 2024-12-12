@@ -1,0 +1,18 @@
+# tasks file
+---
+- name: install | pip | install dependencies
+  ansible.builtin.apt:
+    name: "{{ virtualenv_install_get_pip_apt_dependencies }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  tags:
+    - virtualenv-install-pip-dependencies
+
+- name: install | pip | install (latest)  # noqa package-latest
+  ansible.builtin.pip:
+    name: "{{ virtualenv_install_get_pip_pip_dependencies }}"
+    state: latest
+    executable: "pip{{ virtualenv_python_version_major | string }}"
+  tags:
+    - virtualenv-install-pip-install

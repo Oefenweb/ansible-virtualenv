@@ -1,0 +1,3 @@
+# vars file
+---
+virtualenv_install_method: native

@@ -1,4 +1,3 @@
 # vars file
 ---
-virtualenv_python_version_major: 3
-virtualenv_get_pip_url: 'https://bootstrap.pypa.io/pip/get-pip.py'
+virtualenv_install_method: pip

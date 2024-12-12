@@ -1,23 +1,27 @@
 # tasks file
 ---
-- name: install dependencies
-  ansible.builtin.apt:
-    name: "{{ virtualenv_dependencies }}"
-    state: "{{ apt_install_state | default('latest') }}"
-    update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+- name: install | native
+  ansible.builtin.import_tasks: install-native.yml
+  when: virtualenv_install_method == 'native'
   tags:
     - configuration
     - virtualenv
-    - virtualenv-install
-    - virtualenv-install-dependencies
+    - virtualenv-install-native
 
-- name: install  # noqa package-latest
-  ansible.builtin.pip:
-    name: "{{ virtualenv_pip_dependencies }}"
-    state: latest
-    executable: "pip{{ virtualenv_python_version_major | string }}"
+- name: install | pip
+  ansible.builtin.import_tasks: install-pip.yml
+  when: virtualenv_install_method == 'pip'
+  tags:
+    - configuration
+    - virtualenv
+    - virtualenv-install-pip
+
+- name: verify
+  ansible.builtin.command: >
+    virtualenv --version
+  changed_when: false
   tags:
     - configuration
     - virtualenv
     - virtualenv-install
+    - virtualenv-install-verify

@@ -1,8 +1,12 @@
 # vars file
 ---
-virtualenv_dependencies:
+virtualenv_install_native_apt_dependencies:
+  - "python{{ virtualenv_python_version_major is version('3', '>=') | ternary('3', '') }}-virtualenv"
+  - "python{{ virtualenv_python_version_major is version('3', '>=') | ternary('3', '') }}-virtualenvwrapper"
+
+virtualenv_install_get_pip_apt_dependencies:
   - "python{{ virtualenv_python_version_major is version('3', '>=') | ternary('3', '') }}"
 
-virtualenv_pip_dependencies:
+virtualenv_install_get_pip_pip_dependencies:
   - virtualenv
   - virtualenvwrapper
