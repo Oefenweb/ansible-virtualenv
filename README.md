@@ -11,10 +11,13 @@ Set up (the latest version of) virtualenv(wrapper) in Debian-like systems.
 
 * `python(2|3)` (will be installed)
 
+when using `virtualenv_install_method: pip`
+
 #### Variables
 
+* `virtualenv_install_method`: [default: `native`]: The way to install `virtualenv` (e.g. `native` (from Ubuntu/Debian repo) or `pip`, `< 24.04` only)
+
 * `virtualenv_python_version_major` [default: `3`]: Python version to install `virtualenv` for.
-* `virtualenv_python_version` [default: `virtualenv_python_version`]: Deprecated
 
 ## Dependencies
 
