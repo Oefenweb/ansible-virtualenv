@@ -1,4 +1,8 @@
 # defaults file
 ---
-virtualenv_python_version_major: 2
+virtualenv_install_method: native
+# Only available for < 24.04
+# virtualenv_install_method: pip
+
+virtualenv_python_version_major: 3
 virtualenv_python_version: "{{ virtualenv_python_version_major }}"

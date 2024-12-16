@@ -1,0 +1,10 @@
+# tasks file
+---
+- name: install | native | install dependencies
+  ansible.builtin.apt:
+    name: "{{ virtualenv_install_native_apt_dependencies }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  tags:
+    - virtualenv-install-native-install
