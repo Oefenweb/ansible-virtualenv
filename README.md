@@ -7,7 +7,7 @@ Set up (the latest version of) virtualenv(wrapper) in Debian-like systems.
 
 #### Requirements
 
-* `pip` (will not installed)
+* `pip` (will not be installed)
 
 * `python(2|3)` (will be installed)
 
